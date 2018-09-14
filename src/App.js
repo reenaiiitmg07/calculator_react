@@ -17,8 +17,20 @@ class App extends Component {
    let val1=this.state.val1;
    let opp=this.state.opp;
    let result=this.state.res;
-   if(opp==null&&e.target.value)
-   if()
+   if(opp===null &&(e.target.value!='+'||e.target.value!='-'||e.target.value!='*'||e.target.value!='/')){
+     val1=val1*10+parseInt(e.target.value);
+     this.setState({val1:val1});
+     console.log(val1);
+   }
+   else {
+     console.log(e.target.value);
+    if(opp==null && (e.target.value=='+'||e.target.value=='-'||e.target.value=='*'||e.target.value=='/') ){
+      opp=e.target.value;
+      this.setState({val1:val1});
+      console.log(opp);
+    }
+   }
+   //console.log(val1);
  }
 
   render() {
@@ -38,7 +50,7 @@ class App extends Component {
 	      <div className="col-sm-3 cal-col"><button className="btn" value={7} onClick={this.handleClick}>7</button></div>
 	      <div className="col-sm-3 cal-col"><button className="btn" value={8} onClick={this.handleClick}>8</button></div>
               <div className="col-sm-3 cal-col" onClick={this.handleClick}>9</div>
-              <div className="col-sm-3 cal-col"><button className="btn" value={'*'} onClick={this.handleClick}>*</button></div>
+              <div className="col-sm-3 cal-col"><button className="btn" value='*' onClick={this.handleClick}>*</button></div>
 
 	    </div>
             <div className="row">
