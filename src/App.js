@@ -34,7 +34,7 @@ handleResult(e){
  if(opp==='*')
  {
    res=val1*val2;
-   console.log(res);
+
  }
  else if(opp==='+'){
    res=val1+val1;
@@ -45,7 +45,8 @@ handleResult(e){
  else {
    res=val1/val2;
  }
- this.state.res=res;
+ this.setState({res:res});
+ console.log(res);
  //console.log(res);
 }
 
@@ -75,14 +76,14 @@ handleResult(e){
  }
 
   render() {
+    let res=this.state.res;
+    let opp=this.state.opp;
+    let val1=this.state.val1;
+    let val2=this.state.val2;
     return (
       <div className="App">
 	    <div className="result">
-
-          {this.state.opp?this.state.val2:this.state.val1}
-
-
-
+       {res>0?res:opp?val2:val1}
 	    </div>
 	   <div className="row">
 	      <div className="col-sm-3 cal-col"><button className="btn" onClick={this.allClear}>AC</button></div>
